@@ -1,0 +1,6 @@
+*.log
+*.zip
+Sysmon/
+Sysmon.zip
+*.pcap
+*.bak
