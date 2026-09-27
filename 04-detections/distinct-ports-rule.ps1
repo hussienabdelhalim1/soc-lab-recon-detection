@@ -31,6 +31,10 @@
     Runs against a different source IP with a higher threshold.
 
 .NOTES
+       Privileges:
+        The Windows Firewall log requires administrator access to read.
+        Run this script from an elevated PowerShell session, or deploy it
+        as a scheduled task under a privileged service account.
     Windows Firewall logging must be enabled:
         Set-NetFirewallProfile -Profile Domain,Public,Private `
             -LogAllowed True -LogBlocked True
