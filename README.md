@@ -149,7 +149,15 @@ worth — not to write an unbreakable rule.
    There is only a portfolio of rules whose combined evasion cost exceeds the
    value of the attack.
 
+
 ## Repo Structure
+
+- [01-setup/environment.md](01-setup/environment.md) — Lab environment and VM configuration
+- [02-attacks/experiment-a-fast-scan.md](02-attacks/experiment-a-fast-scan.md) — Detailed writeup of the two scans
+- [03-telemetry/firewall-log-analysis.md](03-telemetry/firewall-log-analysis.md) — Firewall log format and field analysis
+- [04-detections/distinct-ports-rule.ps1](04-detections/distinct-ports-rule.ps1) — The detection rule, ready to run
+- [05-analysis/evasion-and-tradeoffs.md](05-analysis/evasion-and-tradeoffs.md) — Analysis of evasion techniques and detection trade-offs
+- [06-references/mitre-mapping.md](06-references/mitre-mapping.md) — MITRE ATT&CK technique mapping
 
 ```
 soc-lab-recon-detection/
