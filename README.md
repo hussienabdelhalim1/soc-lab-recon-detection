@@ -141,9 +141,20 @@ worth — not to write an unbreakable rule.
 3. **Time windows are attack surfaces.** Any fixed window can be evaded by
    stretching the attack.
 
-4. **Rules fail silently.** A rule returning zero results does not mean no
-   attack. It means the rule's conditions were not met. Always test rules
-   against known-bad data before trusting them.
+4. **Sensors fail silently.** While testing the slow-scan rule, two failures
+   compounded: the Windows Firewall service stopped writing to
+   `pfirewall.log`, and the Win10 VM's clock drifted two days behind. The
+   rule returned "no detection" — not because there was no attack, but
+   because both the time reference and the log file were broken.
+
+   The firewall service cannot be restarted via `Restart-Service mpssvc`
+   (Microsoft blocks it for security reasons). Only a full reboot releases
+   the file handle. The clock fix required `w32tm /resync`.
+
+   **Detection rules must be paired with health checks** that verify the
+   sensor is still writing and the clock is accurate. A rule that reads
+   stale data will silently produce false negatives — the worst kind of
+   failure.
 
 5. **Layered detection beats perfect detection.** There is no unbreakable rule.
    There is only a portfolio of rules whose combined evasion cost exceeds the
